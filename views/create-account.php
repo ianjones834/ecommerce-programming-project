@@ -9,5 +9,32 @@
       <label for="password" class="form-label font-weight-bold">Password</label>
       <input type="text" class="form-control" id="password" />
     </div>
-  <button type="submit" class="btn btn-primary mb-3">Create Account</button>
+  <button type="submit" class="btn btn-primary mb-3" id='submit'>Create Account</button>
 </div>
+
+<script>
+  $('#submit').on('click', () => {
+    let username = $('#username').val();
+    let password = $('#password').val();
+
+    $.ajax({
+      type: "POST",
+      url: `models/create-account.php`,
+      data: {username: username, password: password},
+      success: (res) => {
+        console.log(res);
+        if (res == 'true') {
+          localStorage.setItem('account', username);
+          login(username);
+          get('main');
+        }
+        else {
+          alert('Error while creating account: Please try again later.');
+        }
+      },
+      error: (err) => {
+        alert('Error while creating account: Please try again later.');
+      }
+    })
+  });
+</script>
