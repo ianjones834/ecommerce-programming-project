@@ -15,7 +15,7 @@
 <body>
   <?php include('views/components/navbar.php') ?>
 
-  <div id="main-body">
+  <div id="main-body" class="mx-5">
     <?php include("views/main.php") ?>
   </div>
 </body>

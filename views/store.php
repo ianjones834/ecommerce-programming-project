@@ -17,10 +17,10 @@
       $price = $row["price"];
 
       echo "<h3>$name: $price</h3>
-        <img src='$image' width='500' height='600'/>
+        <img src='$root/images/$image' width='500' height='600'/>
         <p>$description</p>
         <audio controls>
-          <source src='$music' type='audio/mpeg'>
+          <source src='$root/music/$music' type='audio/mpeg'>
         </audio>
       ";
     }

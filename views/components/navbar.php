@@ -24,11 +24,14 @@
   }
 </script>
 
-<nav class="navbar navbar-dark bg-primary">
-  <a class="navbar-brand text-light" style="cursor: pointer;" onclick="get('main')">New Tunes Music</a>
-  <a class="text-light" style="cursor: pointer;" onclick="get('store')">Store</a>
-  <a class="text-light" style="cursor: pointer;" onclick="get('login')" id="login-account">Login</a>
-</nav>
+<div class="bg-primary">
+  <nav class="navbar navbar-dark mx-5">
+    <a class="navbar-brand text-light" style="cursor: pointer;" onclick="get('main')">New Tunes Music</a>
+    <a class="text-light" style="cursor: pointer;" onclick="get('store')">Store</a>
+    <a class="text-light" style="cursor: pointer;" onclick="get('login')" id="login-account">Login</a>
+  </nav>
+</div>
+
 
 <script>
   if (localStorage.getItem('account') != null) {
