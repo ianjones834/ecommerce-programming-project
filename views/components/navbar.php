@@ -4,6 +4,9 @@
       url: `controllers/page-handler.php?page=${page}`,
       success: (result) => {
         $('#main-body').html(result);
+      },
+      error: (result) => {
+        console.log(result);
       }
     });
   }
@@ -23,6 +26,7 @@
 
 <nav class="navbar navbar-dark bg-primary">
   <a class="navbar-brand text-light" style="cursor: pointer;" onclick="get('main')">New Tunes Music</a>
+  <a class="text-light" style="cursor: pointer;" onclick="get('store')">Store</a>
   <a class="text-light" style="cursor: pointer;" onclick="get('login')" id="login-account">Login</a>
 </nav>
 

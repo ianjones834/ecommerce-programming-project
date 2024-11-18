@@ -1,4 +1,5 @@
 <?php
+
   $page = $_REQUEST['page'];
   $path = $_SERVER["DOCUMENT_ROOT"] . '/views';
 

@@ -22,7 +22,6 @@
       url: `models/create-account.php`,
       data: {username: username, password: password},
       success: (res) => {
-        console.log(res);
         if (res == 'true') {
           localStorage.setItem('account', username);
           login(username);
