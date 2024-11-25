@@ -24,7 +24,7 @@
   }
 </script>
 
-<div class="bg-primary">
+<div class="bg-primary mb-3">
   <nav class="navbar navbar-dark mx-5">
     <a class="navbar-brand text-light" style="cursor: pointer;" onclick="get('main')">New Tunes Music</a>
     <a class="text-light" style="cursor: pointer;" onclick="get('store')">Store</a>
