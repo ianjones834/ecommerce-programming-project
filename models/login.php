@@ -18,9 +18,10 @@ $result = $pdo->query($query);
 
 while ($row = $result->fetch()) {
   if ($row['username'] == $username && $row['password'] == $password) {
-    echo 'true';
+    $id = $row['accountID'];
+    echo "$id";
     return;
   }
 }
 
-echo 'false';
+echo '-1';

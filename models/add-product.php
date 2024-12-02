@@ -1,6 +1,4 @@
 <?php
-  // error_reporting(E_ALL);
-  // ini_set('display_errors', 1);
   $root = $_SERVER['DOCUMENT_ROOT'];
 
   require_once "$root/utils/phpmp3.php";
@@ -31,13 +29,11 @@
   $description = $_POST['description'];
   $price = $_POST['price'];
 
-  $query = "insert into products(title, artist, image, music, description, price, type) values('$title', '$artist', '$image', '$music', '$description', '$price', 'full');";
-  $query1 = "insert into products(title, artist, image, music, description, price, type) values('$title', '$artist', '$image', '$music', '$description', '$price', 'demo');";
+  $query = "insert into products(title, artist, image, music, description, price) values('$title', '$artist', '$image', '$music', '$description', '$price');";
 
   $result = $pdo->query($query);
-  $result1 = $pdo->query($query1);
 
-  if ($result && $result1) {
+  if ($result) {
     echo "true";
   }
   else {

@@ -1,5 +1,19 @@
 <script>
   function get(page) {
+    if (page == 'account') {
+      $.ajax({
+        url: `controllers/page-handler.php?page=${page}&accountID=${localStorage.getItem('accountId')}`,
+        success: (result) => {
+          $('#main-body').html(result);
+        },
+        error: (result) => {
+          console.log(result);
+        }
+      });
+
+      return;
+    }
+
     $.ajax({
       url: `controllers/page-handler.php?page=${page}`,
       success: (result) => {

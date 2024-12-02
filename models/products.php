@@ -10,5 +10,5 @@ catch (PDOException $e) {
   throw new PDOException($e->getMessage(), (int)$e->getCode());
 }
 
-$query = "select * from products where type='demo'";
+$query = "select * from products";
 $result = $pdo->query($query);

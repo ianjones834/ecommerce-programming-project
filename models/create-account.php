@@ -16,7 +16,8 @@ $query = "insert into accounts(username, password) values('$username', '$passwor
 $result = $pdo->query($query);
 
 if ($result) {
-  echo "true";
+  $lastId = $pdo->lastInsertId();
+  echo "$lastId";
 } else {
-  echo "false";
+  echo '-1';
 }
