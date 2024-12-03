@@ -1,3 +1,4 @@
+<div style="height: 770px;">
 <p class="my-5 h4 text-center">Enter your new username and password:</p>
 
 <div class="m-auto w-50">
@@ -11,6 +12,9 @@
     </div>
   <button type="submit" class="btn btn-primary mb-3" id='submit'>Create Account</button>
 </div>
+</div>
+
+
 
 <script>
   $('#submit').on('click', () => {

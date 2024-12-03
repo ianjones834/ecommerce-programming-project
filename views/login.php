@@ -1,3 +1,5 @@
+<div style="height: 770px;">
+
 <p class="my-5 h4 text-center">Enter your username and password:</p>
 
 <div class="m-auto w-50" id='form'>
@@ -16,6 +18,8 @@
 <p class="my-5 h4 text-center">
   Or <a class="badge badge-light" style="cursor: pointer;" onclick="get('create-account')">create a new account</a>
 </p>
+</div>
+
 
 <script>
   $('#invalid').hide();
