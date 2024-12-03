@@ -18,8 +18,12 @@
 <body>
   <?php include('views/components/navbar.php') ?>
 
-  <div id="main-body" class="mx-5">
+  <div id="main-body" class="mx-5 mb-3" style="height: max-content;">
     <?php include("views/main.php") ?>
+  </div>
+
+  <div style="background-color: black; width:100%; height: 100px; text-align:center;">
+      <p style="color: white; position:relative; top:30%">&copy 2024 - NewTunes Music</p>
   </div>
 </body>
 
