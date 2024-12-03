@@ -29,7 +29,10 @@
   $description = $_POST['description'];
   $price = $_POST['price'];
 
-  $query = "insert into products(title, artist, image, music, description, price) values('$title', '$artist', '$image', '$music', '$description', '$price');";
+  $query = "
+    insert into products(title, artist, image, music, description, price)
+    values('$title', '$artist', '$image', '$music', '$description', '$price')
+    ;";
 
   $result = $pdo->query($query);
 

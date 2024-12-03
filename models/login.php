@@ -14,6 +14,7 @@ catch (PDOException $e) {
 }
 
 $query = "select * from accounts;";
+
 $result = $pdo->query($query);
 
 while ($row = $result->fetch()) {

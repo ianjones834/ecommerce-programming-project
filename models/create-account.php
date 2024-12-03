@@ -12,7 +12,11 @@ catch (PDOException $e) {
   throw new PDOException($e->getMessage(), (int)$e->getCode());
 }
 
-$query = "insert into accounts(username, password) values('$username', '$password');";
+$query = "
+  insert into accounts(username, password)
+  values('$username', '$password')
+  ;";
+
 $result = $pdo->query($query);
 
 if ($result) {

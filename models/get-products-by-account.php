@@ -13,7 +13,11 @@ try {
 
 
 $accountID = $_REQUEST['accountID'];
-$productListQuery = "select distinct productID from purchases where accountID = $accountID;";
+$productListQuery = "
+  select distinct productID from purchases
+  where accountID = $accountID
+  ;
+";
 
 $productIDs = $pdo->query($productListQuery)->fetchAll(PDO::FETCH_COLUMN);
 $productsString = "(";

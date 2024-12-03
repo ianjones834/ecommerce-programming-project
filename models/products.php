@@ -11,4 +11,5 @@ catch (PDOException $e) {
 }
 
 $query = "select * from products";
+
 $result = $pdo->query($query);

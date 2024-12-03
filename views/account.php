@@ -1,5 +1,19 @@
 <h1 class="mb-3" id='welcome'></h1>
 
+<style>
+  table {
+    text-align: center;
+  }
+
+  thead {
+    border: 2px solid black;
+  }
+
+  tbody {
+    border: 2px solid black;
+  }
+</style>
+
 <div>
   <h3 class="mb-3">Library</h3>
 
@@ -45,18 +59,31 @@
     echo "<table style='width:100%;' class='table-striped mb-3'>";
     echo "<thead><tr><th>Purchase Number</th><th>User</th><th>Products</th><th>Total</th></tr></thead>";
 
-    $query = "select purchaseID, username, group_concat(title separator ', ') as products, sum(price) as total from purchases join products on purchases.productID = products.productID join accounts on purchases.accountID = accounts.accountID group by purchaseID, username order by purchaseID desc;";
-    $result = $pdo->query($query);
+    require_once "$root/models/admin-analytics.php";
 
     echo "<tbody>";
 
-    while ($row = $result->fetch()) {
+    while ($row = $records->fetch()) {
       $purchaseID = $row['purchaseID'];
       $username = $row['username'];
       $products = $row['products'];
       $total = $row['total'];
 
-      echo "<tr><td>$purchaseID</td><td>$username</td><td>$products</td><td>$total</td></tr>";
+      echo "<tr><td>$purchaseID</td><td>$username</td><td>$products</td><td>$$total</td></tr>";
+    }
+
+    echo "</tbody></table>";
+
+    echo "<h3 class='mb-3'>Amounts Purchased</h3>";
+
+    echo "<table style='width:100%;' class='table-striped mb-3'>";
+    echo "<thead><tr><th>Title</th><th>Total Purchased</th></tr></thead>";
+
+    while ($row = $purchaseCounts->fetch()) {
+      $title = $row['title'];
+      $totals = $row['totals'];
+
+      echo "<tr><td>$title</td><td>$totals</td></tr>";
     }
 
     echo "</tbody></table>";
