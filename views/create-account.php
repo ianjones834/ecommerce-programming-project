@@ -8,7 +8,7 @@
     </div>
     <div class="form-group mb-3">
       <label for="password" class="form-label font-weight-bold">Password</label>
-      <input type="text" class="form-control" id="password" />
+      <input type="password" class="form-control" id="password" />
     </div>
   <button type="submit" class="btn btn-primary mb-3" id='submit'>Create Account</button>
 </div>

@@ -10,6 +10,8 @@ catch (PDOException $e) {
   throw new PDOException($e->getMessage(), (int)$e->getCode());
 }
 
+// Get all products
+
 $query = "select * from products";
 
 $result = $pdo->query($query);

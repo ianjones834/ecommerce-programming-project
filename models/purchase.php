@@ -10,6 +10,8 @@
     throw new PDOException($e -> getMessage(), (int) $e->getCode());
   }
 
+  // Get the next purchaseID for this purchase
+
   $purchaseIDQuery = "
     select max(distinct purchaseID) as purchaseID from purchases
     ;
@@ -17,8 +19,9 @@
 
   $purchaseID = (int) $pdo->query($purchaseIDQuery)->fetchColumn() + 1;
 
-  $accountID = $_POST['accountID'];
+  // Insert a record into purchases for each purchased product
 
+  $accountID = $_POST['accountID'];
   $success = 'true';
 
   foreach($_POST['products'] as $productID) {

@@ -12,12 +12,16 @@ catch (PDOException $e) {
   throw new PDOException($e->getMessage(), (int)$e->getCode());
 }
 
+// Create account
+
 $query = "
   insert into accounts(username, password)
   values('$username', '$password')
   ;";
 
 $result = $pdo->query($query);
+
+// Return account number back to the website to log in the user
 
 if ($result) {
   $lastId = $pdo->lastInsertId();

@@ -1,5 +1,9 @@
+<!-- Naviation bar at the top of each page -->
+
 <script>
   function get(page) {
+    // Function for ajax getting each page
+
     if (page == 'account') {
       $.ajax({
         url: `controllers/page-handler.php?page=${page}&accountID=${localStorage.getItem('accountId')}`,
@@ -25,6 +29,7 @@
     });
   }
 
+  // Login and logout functions
   function login(username) {
     $('#login-account').html(username);
     $('#login-account').attr('onclick', `get('account')`);

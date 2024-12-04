@@ -11,23 +11,15 @@ try {
   throw new PDOException($e->getMessage(), (int) $e->getCode());
 }
 
+// Get a list of all the purchaed products for that account
 
 $accountID = $_REQUEST['accountID'];
-$productListQuery = "
-  select distinct productID from purchases
-  where accountID = $accountID
+$libraryQuery = "
+  select products.* from products
+  join purchases on purchases.productID = products.productID
+  where purchases.accountID = $accountID
+  group by productID
   ;
 ";
 
-$productIDs = $pdo->query($productListQuery)->fetchAll(PDO::FETCH_COLUMN);
-$productsString = "(";
-
-foreach ($productIDs as $productID) {
-  $productsString = $productsString . $productID . ',';
-}
-
-$productsString = rtrim($productsString, ',');
-$productsString = $productsString . ")";
-
-$ownedProductsQuery = "select * from products where productID in $productsString;";
-$ownedProducts = $pdo->query($ownedProductsQuery);
+$ownedProducts = $pdo->query($libraryQuery);
