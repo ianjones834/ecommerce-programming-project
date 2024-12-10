@@ -1,5 +1,4 @@
 <?php
- error_reporting(E_ALL);
 $root = $_SERVER['DOCUMENT_ROOT'];
 require_once "$root/config/sql-config.php";
 

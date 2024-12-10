@@ -12,6 +12,26 @@ catch (PDOException $e) {
   throw new PDOException($e->getMessage(), (int)$e->getCode());
 }
 
+// Check that the account does not already exist
+
+$query = "select * from accounts;";
+$result = $pdo->query($query);
+
+$exists = false;
+
+// Search for each account to match username and password
+
+while ($row = $result->fetch()) {
+  if ($row['username'] == $username) {
+    $exists = true;
+    break;
+  }
+}
+
+if ($exists) {
+  return '-2';
+}
+
 // Create account
 
 $query = "
